@@ -1,14 +1,12 @@
 import { galleryItems } from './gallery-items';
-import simpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
-// Change code below this line
+import SimpleLightbox from 'simplelightbox';
 
-// console.log(galleryItems);
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const getItemTemplate = ({ preview, description, original }) =>
-    `<a class="gallery__item"  href="${original}" >
-        <img class="gallery__image" src ="${preview}" alt ="${description}">
-     </a>`;
+  `<a class="gallery__item"  href="${original}" >
+      <img class="gallery__image" src ="${preview}" alt ="${description}">
+    </a>`;
 
 const galleryRef = document.querySelector('.gallery');
 
@@ -19,4 +17,4 @@ const renderGallery = () => {
 
 renderGallery();
 
-var lightbox = new simpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: '250ms', });
+var lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: '250ms', });
