@@ -34,7 +34,7 @@ const cleanStorge = () => {
     localStorage.removeItem("feedback-form-state");
 };
 
-const onSubmit = (event) => {
+const handleSubmit = (event) => {
     event.preventDefault();
 
     const {
@@ -48,7 +48,7 @@ const onSubmit = (event) => {
     cleanStorge();
 };
 
-const onInput = (event) => {
+const handleInput = (event) => {
     if (event.target.name === "message") {
         catchedInputData.message = event.target.value;
         saveToStorage();
@@ -58,5 +58,5 @@ const onInput = (event) => {
     }
 };
 
-refs.form.addEventListener('submit', onSubmit);
-refs.form.addEventListener('input', throttle(onInput, 500));
+refs.form.addEventListener('submit', handleSubmit);
+refs.form.addEventListener('input', throttle(handleInput, 500));
