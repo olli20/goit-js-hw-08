@@ -1,10 +1,10 @@
-import throttle from 'lodash.throttle'
+import throttle from 'lodash.throttle';
 
 refs = {
     form: document.querySelector('.feedback-form'),
 };
 
-const catchedInputData = {};
+let catchedInputData = {};
 
 const getFromStorage = () => {
     return JSON.parse(localStorage.getItem("feedback-form-state"));
@@ -13,20 +13,26 @@ const getFromStorage = () => {
 const onPageLoad = () => {
     if (getFromStorage()) {
         catchedInputData = getFromStorage();
-        console.log(catchedInputData);
-    }
+        
+        if (catchedInputData.email) {
+            refs.form.elements.email.value = catchedInputData.email;
+        };
+
+        if (catchedInputData.message) {
+            refs.form.elements.message.value = catchedInputData.message;
+        };
+    };
 };
 
 onPageLoad();
 
-const saveToStorage = () => {           
+const saveToStorage = () => {
     localStorage.setItem("feedback-form-state", JSON.stringify(catchedInputData));
 }
 
 const cleanStorge = () => {
     localStorage.removeItem("feedback-form-state");
 }
-
 
 const onSubmit = (event) => {
     event.preventDefault();
