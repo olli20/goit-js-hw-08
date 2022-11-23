@@ -63,10 +63,10 @@ const handleSubmit = (event) => {
 
 const handleInput = (event) => {
     if (event.target.name === "message") {
-        catchedInputData.message = event.target.value.trim();
+        catchedInputData.message = event.target.value;
         saveToStorage();
     } else if (event.target.name === "email") {
-        catchedInputData.email = event.target.value.trim();
+        catchedInputData.email = event.target.value;
         saveToStorage();
     }
 };
