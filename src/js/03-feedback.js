@@ -1,7 +1,7 @@
 import throttle from 'lodash.throttle';
 
 const refs = {
-    form: document.querySelector('.feedback-form'),
+    form: document.querySelector('.feedback-form'), 
 };
 
 let catchedInputData = {};
@@ -46,11 +46,11 @@ const handleSubmit = (event) => {
 
     //simple validation
     if (emailValue === "" && messageValue === "") {
-        console.log('Email and message are required');
+        alert('Email and message are required');
     } else if (emailValue === "") {
-        console.log('Email is required');
+        alert('Email is required');
     } else if (messageValue === "") {
-        console.log('Message is required');
+        alert('Message is required');
     } else {
         //console log on success
         console.log("Email:", emailValue);
