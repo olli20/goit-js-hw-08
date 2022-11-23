@@ -41,19 +41,32 @@ const handleSubmit = (event) => {
         elements: { email, message }
     } = event.currentTarget;
 
-    console.log("Email:", email.value);
-    console.log("Message:", message.value);
+    const emailValue = email.value.trim();
+    const messageValue = message.value.trim();
 
-    event.currentTarget.reset();
-    cleanStorge();
+    //simple validation
+    if (emailValue === "" && messageValue === "") {
+        alert('Please, write your e-mail and message');
+    } else if (emailValue === "") {
+        alert('Please, write your e-mail');
+    } else if (messageValue === "") {
+        alert('Please, write your message');
+    } else {
+        //console log
+        console.log("Email:", emailValue);
+        console.log("Message:", messageValue);
+
+        event.currentTarget.reset();
+        cleanStorge();
+    }   
 };
 
 const handleInput = (event) => {
     if (event.target.name === "message") {
-        catchedInputData.message = event.target.value;
+        catchedInputData.message = event.target.value.trim();
         saveToStorage();
     } else if (event.target.name === "email") {
-        catchedInputData.email = event.target.value;
+        catchedInputData.email = event.target.value.trim();
         saveToStorage();
     }
 };
