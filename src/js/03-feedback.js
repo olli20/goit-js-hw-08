@@ -46,13 +46,13 @@ const handleSubmit = (event) => {
 
     //simple validation
     if (emailValue === "" && messageValue === "") {
-        alert('Please, write your e-mail and message');
+        console.log('Email and message are required');
     } else if (emailValue === "") {
-        alert('Please, write your e-mail');
+        console.log('Email is required');
     } else if (messageValue === "") {
-        alert('Please, write your message');
+        console.log('Message is required');
     } else {
-        //console log
+        //console log on success
         console.log("Email:", emailValue);
         console.log("Message:", messageValue);
 
