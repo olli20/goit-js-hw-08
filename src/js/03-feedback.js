@@ -16,23 +16,23 @@ const onPageLoad = () => {
         
         if (catchedInputData.email) {
             refs.form.elements.email.value = catchedInputData.email;
-        };
+        }
 
         if (catchedInputData.message) {
             refs.form.elements.message.value = catchedInputData.message;
-        };
-    };
+        }
+    }
 };
 
 onPageLoad();
 
 const saveToStorage = () => {
     localStorage.setItem("feedback-form-state", JSON.stringify(catchedInputData));
-}
+};
 
 const cleanStorge = () => {
     localStorage.removeItem("feedback-form-state");
-}
+};
 
 const onSubmit = (event) => {
     event.preventDefault();
@@ -55,8 +55,8 @@ const onInput = (event) => {
     } else if (event.target.name === "email") {
         catchedInputData.email = event.target.value;
         saveToStorage();
-    } 
-}
+    }
+};
 
 refs.form.addEventListener('submit', onSubmit);
 refs.form.addEventListener('input', throttle(onInput, 500));
