@@ -22,6 +22,7 @@ const onPageLoad = () => {
             refs.form.elements.message.value = catchedInputData.message;
         };
     };
+    console.log(catchedInputData);
 };
 
 onPageLoad();
